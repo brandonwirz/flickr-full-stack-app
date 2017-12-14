@@ -1,2 +1,2 @@
 # pinterest-full-stack-app
-first full-stack app
+starting first full-stack app
