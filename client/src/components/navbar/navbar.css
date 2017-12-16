@@ -1,0 +1,19 @@
+.navbar {
+    background-color: whitesmoke;
+    text-align: center;
+    height: 100px;
+}
+
+.navbar a {
+    display: inline-block;
+    text-decoration: none;
+    padding:10px;
+}
+
+/*.navbar a:visited {
+    color: red;
+}
+
+.navbar a:hover {
+    color: orange;
+}*/
