@@ -8,12 +8,12 @@ import {Switch, Route} from "react-router-dom";
 const API_KEY = "";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+      super(props);
 
-    this.state = {
-      images: [],
-      selectedImage: null,
+      this.state = {
+          images: [],
+          selectedImage: null,
     };
   }
 
@@ -21,7 +21,7 @@ class App extends Component {
 
   }
 
-  
+
   render() {
     const imageSearch = {}
     return (

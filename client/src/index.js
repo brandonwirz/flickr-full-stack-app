@@ -5,7 +5,7 @@ import App from './components/App';
 import {BrowserRouter as Router} from "react-router-dom";
 import {Provider} from "react-redux";
 import store from "./redux";
-import {getPhotos} from "./redux/flickr";
+import {addPhotos} from "./redux/flickr";
 
 
 
@@ -18,4 +18,4 @@ ReactDOM.render(
       document.getElementById('root')
 );
 // getQualityList()
-store.dispatch(getPhotos());
+store.dispatch(addPhotos());

@@ -9,8 +9,7 @@ const imageSchema = new Schema({
         enum: imgOpts
     },
     location: {
-        lat: String,
-        long: String
+        title: String
     }
 }, {timestamps: true});
 
