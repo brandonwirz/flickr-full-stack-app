@@ -1,9 +1,9 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
-import photos from "./flickr";
+import flickr from "./flickr";
 
 const rootReducer = combineReducers({
-      photos
+      flickr
 })
 
 export default createStore(rootReducer, applyMiddleware(thunk));

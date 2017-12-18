@@ -1,7 +1,13 @@
+.header-img{
+  width:100%;
+  height:auto;
+}
+
+
 .navbar {
     background-color: whitesmoke;
     text-align: center;
-    height: 100px;
+    height: 40px;
 }
 
 .navbar a {

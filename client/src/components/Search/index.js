@@ -21,25 +21,31 @@ class Search extends Component {
   //           width:"150px",
   //           height:"auto"
   // }
-    render() {
+  onInputChange(img) {
+      this.setState({img});
 
+  }
+    render() {
         return(
           <div className="search">
-          <input type="text"
-                 value={this.state.img}
-                 onChange={event => this.onInputeChange(event.target.value)}/>
-          <button>search</button>
-          {/* <div>{this.props.photos.perpage}</div> */}
-          {/* <button type="button" class="btn btn-primary" id="sq">Square [75X75]</button> */}
+              {/* <form onSubmit={}>
+                    <input type="text"
+                           placeholder="search"
+                           value={this.state.img}
+                           onChange={(event) => this.onInputeChange(event.target.value)}/>
+                    &nbsp;<button>Flickr search</button>
+              </form> */}
+
+
+              <div className="img-container">
+                  <div>{this.props.flickr.galleries.getPhotos}</div>
+                  {/* flickr.photos.search */}
+              </div>
+
 
         </div>
-
       );
-    }
-    onInputChange(img) {
-        this.setState({img});
-        this.props.onSearchTermChange(img);
-    }
-  }
+   }
+}
 
   export default connect(state => state, {addPhotos})(Search)

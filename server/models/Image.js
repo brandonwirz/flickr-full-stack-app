@@ -3,11 +3,9 @@ const Schema = mongoose.Schema;
 const imgOpts = []
 
 const imageSchema = new Schema({
-    image: Number,
-    quality: {
-        type: String,
-        enum: imgOpts
-    },
+    title: String,
+    imgUrl: String,
+    img: [],
     location: {
         title: String
     }

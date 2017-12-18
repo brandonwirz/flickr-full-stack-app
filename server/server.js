@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(morgan("dev"));
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/pinterest",
+mongoose.connect("mongodb://localhost/flickr",
     {useMongoClient: true},
     err => {
         if (err) throw err;
@@ -22,7 +22,7 @@ mongoose.connect("mongodb://localhost/pinterest",
 //     res.send("It's working!");
 // });
 
-app.use("/pinterest", require("./routes/imageRoutes"));
+app.use("/flickr", require("./routes/imageRoutes"));
 
 
 

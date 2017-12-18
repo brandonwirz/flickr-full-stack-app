@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export function addPhotos(item) {
+export function addPhotos(imgId) {
       return dispatch => {
-      axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=821a771c6461a139ea575637fea49d22&per_page=10&format=json&nojsoncallback=1`)
+      axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=821a771c6461a139ea575637fea49d22&per_page=10&format=json&nojsoncallback=1${imgId}`)
         .then(response => {
             console.dir(response)
             dispatch({
                   type: "ADD_PHOTOS",
-                  item//:response.data
+                  item: response.data
             });
         })
     }
@@ -19,7 +19,7 @@ export function addPhotos(item) {
 
 
 //
-// export function addPhotos(photos) {
+// export function getPhotos(photos) {
 //     return dispatch => {
 //         axios.post("/photos", photos)
 //             .then(response => {
@@ -51,14 +51,14 @@ export function addPhotos(item) {
 // }
 const defaultObject = {
       photos: {
-          perpage: ""
+          photo: []
     }
 }
 //
 export default function reducer(prevState = defaultObject, action) {
     switch (action.type) {
         case "ADD_PHOTOS":
-            return action.data;
+            return action.item
         // case "GET_PHOTOS":
         //     return [...prevState, action.item];
         // case "DELETE_PHOTOS":
@@ -67,30 +67,7 @@ export default function reducer(prevState = defaultObject, action) {
             return prevState;
     }
 }
-// export function getLocalForcast(lat, long){
-//       return (dispatch) => {
-//         axios.get(`http://cors.vschool.io?url=https://api.darksky.net/forecast/33722c235dde0e1f98b2c0963306637e/${lat},${long}`)
-//         .then(response =>{
-//           console.dir(response)
-//           dispatch({
-//             type: "GET_LOCAL_FORCAST",
-//             item: response.data
-//
-//           })
-//       })
-//    }
-// }
-//
-// const defaultObject = {
-//   currently: {
-//     apparentTemperature: ""
-//   },
-//   daily: {
-//     summary: ""
-//   }
-//
-// }
-//
+
 // export default function reducer(prevState = defaultObject ,action) {
 //       switch(action.type) {
 //           case "GET_LOCAL_FORCAST":

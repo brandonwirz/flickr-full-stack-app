@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {addPhotos} from "../../redux/flickr";
+// import {addPhotos} from "../../redux/flickr";
 import {Link} from "react-router-dom";
 
 
-class AddPhotos extends Component {
+class GetPhotos extends Component {
       constructor(props){
         super(props);
         this.state = {
@@ -85,4 +85,4 @@ handleDelete(e){
 
 
 
-export default connect(null, {addPhotos})(addPhotos);
+export default connect(null, {getPhotos})(getPhotos);
