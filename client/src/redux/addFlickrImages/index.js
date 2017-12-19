@@ -2,12 +2,12 @@ import axios from "axios";
 
 export function addPhotos(imgId) {
       return dispatch => {
-      axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=821a771c6461a139ea575637fea49d22&per_page=10&format=json&nojsoncallback=1${imgId}`)
+      axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=821a771c6461a139ea575637fea49d22&per_page=30&format=json&nojsoncallback=1${imgId}`)
         .then(response => {
             console.dir(response)
             dispatch({
                   type: "ADD_PHOTOS",
-                  item: response.data
+                  item: response.data //.flickr.photos.photo
             });
         })
     }
@@ -18,7 +18,7 @@ export function addPhotos(imgId) {
 
 
 
-//
+
 // export function getPhotos(photos) {
 //     return dispatch => {
 //         axios.post("/photos", photos)
@@ -30,7 +30,7 @@ export function addPhotos(imgId) {
 //             });
 //     }
 // }
-//
+
 // export function deletePhoto(id) {
 //     return dispatch => {
 //         axios.delete(`/photos/${id}`)
@@ -43,12 +43,7 @@ export function addPhotos(imgId) {
 //     }
 // }
 
-// const defaultObject = {
-//   currently: {
-//     apparentTemperature: ""
-//   }
-//
-// }
+
 const defaultObject = {
       photos: {
           photo: []
@@ -67,12 +62,3 @@ export default function reducer(prevState = defaultObject, action) {
             return prevState;
     }
 }
-
-// export default function reducer(prevState = defaultObject ,action) {
-//       switch(action.type) {
-//           case "GET_LOCAL_FORCAST":
-//              return action.item;
-//           default:
-//              return prevState
-//       }
-// }

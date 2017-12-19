@@ -1,25 +1,31 @@
 .header-img{
   width:100%;
   height:auto;
+
 }
 
 
 .navbar {
-    background-color: whitesmoke;
+    background-color: #12223C;
     text-align: center;
-    height: 40px;
+    height: 30px;
+    border-top: 2px solid #12223C;
+    border-bottom: 2px solid #12223C;
+    margin-top:-4px;
 }
 
 .navbar a {
     display: inline-block;
     text-decoration: none;
-    padding:10px;
+    padding:7px;
+    color: whitesmoke;
+    font-size: .8em;
 }
 
 /*.navbar a:visited {
     color: red;
 }
-
+*/
 .navbar a:hover {
-    color: orange;
-}*/
+    color: #AED9FC;
+}

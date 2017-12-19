@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-// import {addPhotos} from "../../redux/flickr";
+// import {getPhotos} from "../../redux/flickr";
 import {Link} from "react-router-dom";
 
 
@@ -85,4 +85,4 @@ handleDelete(e){
 
 
 
-export default connect(null, {getPhotos})(getPhotos);
+// export default connect(null, {})();

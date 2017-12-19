@@ -4,9 +4,10 @@ const imgOpts = []
 
 const imageSchema = new Schema({
     title: String,
+    id: String,
     imgUrl: String,
     img: [],
-    location: {
+    owner: {
         title: String
     }
 }, {timestamps: true});

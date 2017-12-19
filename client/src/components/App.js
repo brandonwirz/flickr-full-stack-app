@@ -4,7 +4,7 @@ import Footer from "./footer/Footer";
 import {Switch, Route} from "react-router-dom";
 import './index.css';
 import Search from "./Search";
-import AddPhotos from "./addPhotos";
+import GetPhotos from "./getPhotos";
 
 
 //https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_
@@ -38,7 +38,7 @@ class App extends Component{
               <Navbar/>
                   <Switch>
                       <Route exact path="/" component={Search}/>
-                      <Route path="/edit" component={AddPhotos}/>
+                      {/* <Route path="/edit" component={AddPhotos}/> */}
                   </Switch>
               <Footer/>
           </div>
