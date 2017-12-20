@@ -9,76 +9,61 @@ class Search extends Component {
     constructor(props) {
         super(props);
             this.state = {
-                img: this.props.img,
-                search:''
-        }
+                img: this.props.value,
+                search:""
+        };
+          this.onInputChange = this.onInputChange.bind(this)
+          this.onSubmit = this.onSubmit.bind(this)
     }
 
-    componentDidMount(){
-          this.props.addPhotos();
-  }
+// componentDidMount(){
+//       this.props.addPhotos();
+// }
 
-  // const styles = {
-  //           width:"150px",
-  //           height:"auto"
-  // }
-  onInputChange(img) {
-      this.setState({img});
+onInputChange(event) {
+      event.preventDefault();
+      this.setState({search: event.target.value.substr(0,40)});//up to 40 characters
+      // this.props.addPhotos(event.target.value);
+}
 
-  }
-// const filterSearches = this.props.flickr.filter(
-//       (search) => {
+onSubmit(event) {
+  event.preventDefault()
+    // this.setState({search: event.target.value.substr(0,40)});//up to 40 characters
+    this.props.addPhotos(this.state.search);
+}
+
+// let filterSearches = this.props.flickr.filter((search) => {
 //         return search.name.indexOf(this.state.search) !== -1;
-//   }
-// );
+//   });
 
 
-       createImageArray() {
-           return this.props.flickr.photos.photo.map((image, i) => {
-          // return filterSearches.photos.photo.map((image, i) => {
-              return <div key={image.name + i}>
-                    <img src={`http://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`} alt=""/>
-                      <h3>{image.title}</h3>
-                      <h3>{image.name}</h3>
-                      <h6>{image.id}</h6>
-                  <hr/>
-              </div>
-      });
-    }
-  // }
-// a href="'+myresult_size.url+'" target="_blank"
 
-
-    render() {
-    return(
+  render() {
+      const photos = this.props.flickr.photos.photo.map((image, i) => {
+       // return filterSearches.map((image) => {
+           let src = `http://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}_q.jpg`
+           return <div className="imageThumbs" key={image.id}>
+                  <img src={src} alt={image.title}/>
+                   {/* <h6>{image.id}</h6> */}
+     </div>
+ });
+       return(
           <div className="search">
-                <form onSubmit={this.state.img}>
+                  <form onSubmit={this.onSubmit}>
                       <input type="text"
-                             placeholder="Search"
-                             value={this.state.img}
-                             onChange={(e) => this.onInputeChange(e.target.value)}/>
+                             placeholder="Search here"
+                             value={this.state.value}
+                             onChange={this.onInputChange}
+                                                           />
                       &nbsp;<button>Flickr search</button>
-                </form>
+                  </form>
 
 
-              <div>
-                  {this.createImageArray()}
-                   {/* <div>{this.props.flickr.galleries}</div> */}
-                {/* <h2>{this.props.flickr.photos.photo[0].title}</h2> */}
-                {/* <h2>this.props.flickr.photos.photo.title</h2>
-                <h2>this.props.flickr.photos.photo.id</h2> */}
-              </div>
+                       <div>{photos}</div>
 
-
-
-
-
-
-
-
-        </div>
-      );
-   }
+          </div>
+        );
+     }
 }
 
   export default connect(state => state, {addPhotos})(Search)

@@ -18,4 +18,4 @@ ReactDOM.render(
       document.getElementById('root')
 );
 // getQualityList()
-store.dispatch(addPhotos());
+// store.dispatch(addPhotos);

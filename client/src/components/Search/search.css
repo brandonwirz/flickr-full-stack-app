@@ -1,10 +1,30 @@
 .search{
     padding-top:20px;
+
     text-align: center;
     margin:0 auto;
 }
 .img-container{
     margin:0 auto;
-    width: 100%;
+    width: 60%;
     height: auto;
 }
+.imageThumbs{
+    margin-top:80px;
+    display: inline-block;
+    padding: 5px;
+
+}
+/*.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  .photo-grid__photo-container {
+    .photo {
+      margin-left: 10px;
+      height: 300px;
+      width: auto;
+    }
+  }
+}*/

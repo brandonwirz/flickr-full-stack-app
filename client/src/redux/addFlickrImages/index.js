@@ -1,18 +1,18 @@
 import axios from "axios";
 
-export function addPhotos(imgId) {
+export function addPhotos(searchWord) {
       return dispatch => {
-      axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=821a771c6461a139ea575637fea49d22&per_page=30&format=json&nojsoncallback=1${imgId}`)
-        .then(response => {
-            console.dir(response)
-            dispatch({
-                  type: "ADD_PHOTOS",
-                  item: response.data //.flickr.photos.photo
+        let apiKey = '821a771c6461a139ea575637fea49d22';
+        axios.get(`https://api.flickr.com/services/rest/?api_key=${apiKey}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=${searchWord}`)
+            .then(response => {
+                console.dir(response)
+                dispatch({
+                      type: "ADD_PHOTOS",
+                      item: response.data //.flickr.photos.photo
             });
         })
     }
 }
-
 
 
 
