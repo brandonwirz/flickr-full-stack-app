@@ -40,7 +40,6 @@ onSubmit(event) {
 
   render() {
       const photos = this.props.flickr.photos.photo.map((image, i) => {
-       // return filterSearches.map((image) => {
            let src = `http://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}_q.jpg`
            return <div className="imageThumbs" key={image.id}>
                   <img src={src} alt={image.title}/>
@@ -49,13 +48,12 @@ onSubmit(event) {
  });
        return(
           <div className="search">
-                  <form onSubmit={this.onSubmit}>
-                      <input type="text"
-                             placeholder="Search here"
-                             value={this.state.value}
-                             onChange={this.onInputChange}
-                                                           />
-                      &nbsp;<button>Flickr search</button>
+                   <form onSubmit={this.onSubmit}>
+                         <input type="text"
+                         placeholder="Search here"
+                         value={this.state.value}
+                         onChange={this.onInputChange}/>
+                        &nbsp;<button>Flickr search</button>
                   </form>
 
 
