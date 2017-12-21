@@ -10,10 +10,16 @@
     height: auto;
 }
 .imageThumbs{
-    margin-top:80px;
+    margin-top:40px;
     display: inline-block;
     padding: 5px;
-
+}
+.imageBox {
+  width: 500px;
+  -webkit-animation: fade-in 1.5s; /* Safari 4+ */
+  -moz-animation:    fade-in 1.5s; /* Fx 2+ */
+  -o-animation:      fade-in 1.5s; /* Opera 12+ */
+  animation:         fade-in 1.5s;
 }
 /*.photo-grid {
   display: flex;

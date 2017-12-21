@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 
+// app.use()
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/flickr",
     {useMongoClient: true},
