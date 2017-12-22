@@ -10,7 +10,6 @@ app.use(bodyParser.json());
 app.use(morgan("dev"));
 app.use(cors());
 
-
 // localhost:7000/flickr
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/flickr",
@@ -21,14 +20,7 @@ mongoose.connect("mongodb://localhost/flickr",
     }
 );
 
-//Check if the server is working correctly
-// app.get("/", (req, res) => {
-//     res.send("It's working!");
-// });
-
 app.use("/flickr", require("./routes/imageRoutes"));
-
-
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port} starting at ${new Date()}`);

@@ -51,22 +51,21 @@ render() {
          return <div className="imageThumbs" key={image.id}>
                      <a href={src} key={image.id} target="_blank" className="imageBox">
                      <img src={src} alt={image.title}/>
-                     </a>
-                     <pre></pre>
-                     <button onClick={() => this.handleSave(src)}>save photo</button>
-                     {/* <input id="checkBox" type="checkbox" onChange={this.updateInputs} name="completed"/> */}
+                     </a><br/>
+                     <button className="save-button" onClick={() => this.handleSave(src)}>save photo</button>
+                     <input id="checkBox" type="checkbox" onChange={this.updateInputs} name="completed"/>
                </div>
             }
         );
     return(
           <div className="search">
-                <form onSubmit={this.onSubmit}>
-                     <input type="text"
-                     placeholder="Search here"
+                <form className="form" onSubmit={this.onSubmit}>
+                     <input className="input-search" type="text"
+                     placeholder=" Search"
                      value={this.state.value}
                      onChange={this.onInputChange}
                      name="search"/>
-                     <button>Flickr search</button>
+                     <button className="flickr-button">Flickr search</button>&nbsp;
                      <select name="board" id="" onChange={this.onInputChange}>
                      {this.props.flickr.boards.map((board) => <option value={board._id}>{board.title}</option>)}
                      {/* {this.props.flickr.boards.map((board2) => <option value={board2._id}>{board2.title}</option>)} */}

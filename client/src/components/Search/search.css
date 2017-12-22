@@ -1,13 +1,41 @@
 .search{
     padding-top:20px;
+    padding-bottom:20px;
 
     text-align: center;
     margin:0 auto;
+
+}
+.flickr-button{
+  background-color: #12223C;
+  color: white;
+  width: 120px;
+  height: 26px;
+  border: 1px solid #12223C;
+  cursor:pointer;
+}
+.input-search{
+
+  color: white;
+  width: 100px;
+  height: 26px;
+  width: 200px;
+  border: 1px solid #12223C;
+  padding-bottom: 2px;
+  color: black;
+
+
+}
+.form{
+  padding-bottom:30px;
+
 }
 .img-container{
+    padding-top:20px;
     margin:0 auto;
-    width: 60%;
+    width: 100%;
     height: auto;
+
 }
 .imageThumbs{
     margin-top:40px;
@@ -15,22 +43,18 @@
     padding: 5px;
 }
 .imageBox {
-  width: 500px;
-  -webkit-animation: fade-in 1.5s; /* Safari 4+ */
-  -moz-animation:    fade-in 1.5s; /* Fx 2+ */
-  -o-animation:      fade-in 1.5s; /* Opera 12+ */
-  animation:         fade-in 1.5s;
+    width: 500px;
+    -webkit-animation: fade-in 1.5s; /* Safari 4+ */
+    -moz-animation:    fade-in 1.5s; /* Fx 2+ */
+    -o-animation:      fade-in 1.5s; /* Opera 12+ */
+    animation:         fade-in 1.5s;
 }
-/*.photo-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-  .photo-grid__photo-container {
-    .photo {
-      margin-left: 10px;
-      height: 300px;
-      width: auto;
-    }
-  }
-}*/
+.save-button{
+  margin-bottom: 10px;
+  text-align: center;
+  background-color:whitesmoke ;
+  color: #12223C;
+  width: 80px;
+  height: 20px;
+  border-radius: 5px;
+}
