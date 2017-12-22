@@ -12,12 +12,12 @@ class Search extends Component {
         super(props);
             this.state = {
                 board: "",
-                search:"",
+                search:""
         };
-        this.onInputChange = this.onInputChange.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
-        this.handleSave = this.handleSave.bind(this)
-  }
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.handleSave = this.handleSave.bind(this);
+}
 
 componentDidMount(){
       this.props.addBoards();
@@ -33,13 +33,17 @@ onSubmit(event) {
     this.props.searchPhotos(this.state.search);
 }
 
-handleSave( photo){
+handleSave(photo){
     this.props.savePhoto(this.state.board, photo);
 }
 
-// let filterSearches = this.props.flickr.filter((search) => {
-//         return search.name.indexOf(this.state.search) !== -1;
-//   });
+// updateInputs(e){
+//       if(e.target.type === "checkbox"){
+//           this.setState({completed: e.target.checked});
+//       } else {
+//           this.setState({[e.target.name]:e.target.value});
+//       }
+//   }
 
 render() {
     const photos = this.props.flickr.photos.map((image, i) => {
@@ -50,11 +54,11 @@ render() {
                      </a>
                      <pre></pre>
                      <button onClick={() => this.handleSave(src)}>save photo</button>
-
+                     {/* <input id="checkBox" type="checkbox" onChange={this.updateInputs} name="completed"/> */}
                </div>
             }
         );
-       return(
+    return(
           <div className="search">
                 <form onSubmit={this.onSubmit}>
                      <input type="text"
@@ -62,13 +66,14 @@ render() {
                      value={this.state.value}
                      onChange={this.onInputChange}
                      name="search"/>
-                     &nbsp;<button>Flickr search</button>
+                     <button>Flickr search</button>
                      <select name="board" id="" onChange={this.onInputChange}>
-                       {this.props.flickr.boards.map((board) => <option value={board._id}>{board.title}</option>)}
+                     {this.props.flickr.boards.map((board) => <option value={board._id}>{board.title}</option>)}
+                     {/* {this.props.flickr.boards.map((board2) => <option value={board2._id}>{board2.title}</option>)} */}
                      </select>
-                </form>
-              <div>{photos}</div>
-          </div>
+                 </form>
+              <div>{ photos }</div>
+           </div>
         );
     }
 }

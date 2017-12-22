@@ -8,7 +8,7 @@ export default function Navbar(props) {
         <img className="header-img" src={require("../images/header-img.jpg")} alt="header mountain image in washington, twin lakes"/>
            <nav className="navbar">
                <Link to="/">Home</Link>
-               <Link to="/Saved">Saved Photos</Link>
+               <Link to="/boards">Saved Photos</Link>
            </nav>
       </div>
    )

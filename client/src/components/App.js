@@ -6,19 +6,18 @@ import './index.css';
 import Search from "./Search";
 import SavePhoto from "./SavePhoto";
 
-
 class App extends Component{
     constructor(props) {
     super(props);
         this.state = {
               photos: []
   };
-     this.handleGetPhotos = this.handleGetPhotos.bind(this);
+     // this.handleGetPhotos = this.handleGetPhotos.bind(this);
 }
 
-handleGetPhotos(photos){
-   this.setState({'photos': photos});
- }
+// handleGetPhotos(photos){
+//    this.setState({'photos': photos});
+//  }
 
   render() {
       return (
@@ -26,7 +25,7 @@ handleGetPhotos(photos){
               <Navbar/>
                   <Switch>
                       <Route exact path="/" component={Search}/>
-                      <Route path="/save" component={SavePhoto}/>
+                      <Route path="/boards" component={SavePhoto}/>
                   </Switch>
               <Footer/>
           </div>

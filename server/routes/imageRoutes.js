@@ -18,9 +18,7 @@ imageRoutes.put("/add-image/:id", (req, res) => {
                 if (err) return res.status(500).send(err);
                 return res.send(savedBoard);
               })
-
       });
-
 });
 //addboards
 imageRoutes.post("/", (req, res) => {
@@ -37,7 +35,6 @@ imageRoutes.get("/:id", (req, res) => {
         res.send(image);
     });
 });
-
 
 
 imageRoutes.delete("/:id", (req, res) => {

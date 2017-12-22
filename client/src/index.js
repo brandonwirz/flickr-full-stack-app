@@ -6,7 +6,7 @@ import {Provider} from "react-redux";
 import store from "./redux";
 import {searchPhotos} from "./redux/addFlickrImages";
 import {savePhoto} from "./redux/addFlickrImages";
-//
+
 ReactDOM.render(
         <Provider store={store}>
           <Router>

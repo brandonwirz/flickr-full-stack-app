@@ -4,7 +4,7 @@ import "./footer.css";
 export default function Footer(props) {
     return (
         <footer>
-            {/* <p>Footer</p> */}
+            <p>Footer</p>
         </footer>
     )
 }
