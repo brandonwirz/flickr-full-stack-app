@@ -4,7 +4,8 @@ import Footer from "./footer/Footer";
 import {Switch, Route} from "react-router-dom";
 import './index.css';
 import Search from "./Search";
-// import SavePhoto from "./SavePhoto";
+import SavePhoto from "./SavePhoto";
+
 
 class App extends Component{
     constructor(props) {
@@ -25,7 +26,7 @@ handleGetPhotos(photos){
               <Navbar/>
                   <Switch>
                       <Route exact path="/" component={Search}/>
-                      {/* <Route path="/save" component={SavePhoto}/> */}
+                      <Route path="/save" component={SavePhoto}/>
                   </Switch>
               <Footer/>
           </div>

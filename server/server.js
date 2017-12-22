@@ -4,11 +4,14 @@ const port = process.env.PORT || 7000;
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const cors = require("cors")
 
 app.use(bodyParser.json());
 app.use(morgan("dev"));
+app.use(cors());
 
-// app.use()
+
+// localhost:7000/flickr
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/flickr",
     {useMongoClient: true},

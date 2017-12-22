@@ -8,15 +8,15 @@ export function searchPhotos(searchWord) {
                 console.dir(response)
                 dispatch({
                       type: "SEARCH_PHOTOS",
-                      item: response.data //.flickr.photos.photo
+                      item: response.data.photos.photo
             });
         })
     }
 }
 
-export function savePhoto(photo) {
-      return dispatch => {
-      axios.post(``)
+export function savePhoto(boardId, photo) {
+      return (dispatch) => {
+      axios.put(`http://localhost:7000/flickr/add-image/${boardId}`, {image: photo})
           .then(response => {
               dispatch({
                   type: "SAVE_PHOTO",
@@ -26,18 +26,31 @@ export function savePhoto(photo) {
     }
 }
 
+
+export function addBoards() {
+  return (dispatch) => {
+  axios.get(`http://localhost:7000/flickr`)
+      .then(response => {
+          dispatch({
+              type: "GET_BOARDS",
+              data: response.data
+        });
+    })
+}
+}
 const defaultObject = {
-      photos: {
-          photo: []
-    }
+      photos: [],
+      boards: []
 }
 //
 export default function reducer(prevState = defaultObject, action) {
     switch (action.type) {
         case "SEARCH_PHOTOS":
-            return action.item
+            return {...prevState, photos: action.item}
         case "SAVE_PHOTO":
-            return [...prevState, action.data];
+            return {...prevState, boards: [...prevState.boards, action.data]};
+        case "GET_BOARDS":
+            return {...prevState, boards: action.data};
         // case "DELETE_QUALITY":
         //     return prevState.filter(item => item._id !== action.data._id);
         default:

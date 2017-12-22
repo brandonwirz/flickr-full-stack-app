@@ -17,4 +17,4 @@ ReactDOM.render(
 );
 
 // store.dispatch(searchPhotos());
-// store.dispatch(savePhoto());
+store.dispatch(savePhoto);
