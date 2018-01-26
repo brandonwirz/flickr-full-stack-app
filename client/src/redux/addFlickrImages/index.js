@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export function searchPhotos(searchWord) {
       return dispatch => {
       let apiKey = '821a771c6461a139ea575637fea49d22';
@@ -26,6 +27,18 @@ export function savePhoto(boardId, photo) {
     }
 }
 
+export function deletePhoto(boardId, imgUrl) {
+      return (dispatch) => {
+      axios({method:"delete", url:`http://localhost:7000/flickr/`, data: {boardId, imgUrl}})
+          .then(response => {
+              dispatch({
+                  type: "DELETE_PHOTO",
+                  data: response.data
+            });
+        })
+    }
+}
+
 export function addBoards() {
      return (dispatch) => {
      axios.get(`http://localhost:7000/flickr`)
@@ -39,21 +52,29 @@ export function addBoards() {
 }
 
 const defaultObject = {
-      photos: [],
-      boards: []
+    photos: [],
+    boards: []
 }
-
 
 export default function reducer(prevState = defaultObject, action) {
     switch (action.type) {
         case "SEARCH_PHOTOS":
             return {...prevState, photos: action.item}
-        case "SAVE_PHOTO":
-            return {...prevState, boards: [...prevState.boards, action.data]};
+        case "SAVE_PHOTO": 
+            const updatedBoards = prevState.boards.map(board => {
+                return board._id === action.data._id ? action.data : board
+            })
+            return {...prevState, boards: updatedBoards};
+
         case "GET_BOARDS":
             return {...prevState, boards: action.data};
-        // case "DELETE_QUALITY":
-        //     return prevState.filter(item => item._id !== action.data._id);
+        case "DELETE_PHOTO": {
+            let index = prevState.boards.findIndex(item => item._id === action.data._id);
+            const updatedBoards = prevState.boards.map(board => {
+                return board._id === action.data._id ? action.data : board
+            })
+            return {...prevState, boards: updatedBoards}
+        }
         default:
             return prevState;
     }
